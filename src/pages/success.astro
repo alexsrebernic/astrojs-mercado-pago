@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const { searchParams } = Astro.url;
+const paymentId = searchParams.get('payment_id');
+const status = searchParams.get('status');
+const merchantOrderId = searchParams.get('merchant_order_id');
+---
+
+<Layout title="Payment Successful">
+  <main class="container mx-auto mt-10 px-4">
+    <h1 class="text-3xl font-bold text-green-600 mb-6">Payment Successful!</h1>
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <p class="mb-4">Thank you for your purchase. Your payment was successful.</p>
+      <ul class="list-disc list-inside mb-4">
+        <li>Payment ID: {paymentId}</li>
+        <li>Status: {status}</li>
+        <li>Merchant Order ID: {merchantOrderId}</li>
+      </ul>
+      <a href="/" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Return to Home
+      </a>
+    </div>
+  </main>
+</Layout>

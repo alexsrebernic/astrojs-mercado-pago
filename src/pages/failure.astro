@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const { searchParams } = Astro.url;
+const paymentId = searchParams.get('payment_id');
+const status = searchParams.get('status');
+const merchantOrderId = searchParams.get('merchant_order_id');
+---
+
+<Layout title="Payment Failed">
+  <main class="container mx-auto mt-10 px-4">
+    <h1 class="text-3xl font-bold text-red-600 mb-6">Payment Failed</h1>
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <p class="mb-4">We're sorry, but your payment could not be processed. Please try again or contact support if the problem persists.</p>
+      <ul class="list-disc list-inside mb-4">
+        <li>Payment ID: {paymentId}</li>
+        <li>Status: {status}</li>
+        <li>Merchant Order ID: {merchantOrderId}</li>
+      </ul>
+      <a href="/" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Return to Home
+      </a>
+      <a href="/contact" class="inline-block bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded ml-4">
+        Contact Support
+      </a>
+    </div>
+  </main>
+</Layout>
